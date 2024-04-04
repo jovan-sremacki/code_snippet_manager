@@ -1,0 +1,13 @@
+AllCops:
+  TargetRubyVersion: 3.0
+  Include:
+  - 'lib/**/*.rb'
+  - spec/**/*.rb'
+  Exlude:
+  - 'bin'
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+Style/StringLiteralsInInterpolation:
+  EnforcedStyle: double_quotes
