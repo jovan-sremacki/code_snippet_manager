@@ -32,7 +32,6 @@ Gem::Specification.new do |spec|
 
   # Runtime dependency
   spec.add_runtime_dependency "tty-prompt", "~> 0.23.0"
-  spec.add_runtime_dependency ""
 
   # Development dependencies
   spec.add_development_dependency "rspec", "~> 3.10"
