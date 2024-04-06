@@ -2,4 +2,61 @@
 # frozen_string_literal: true
 
 require "code_snippet_manager"
-CodeSnippetManager.run
+require "tty-prompt"
+require "optparse"
+require "pry"
+
+FIELDS = {
+  title: {
+    type: :string,
+    prompt: "What is the title of your snippet?",
+    required: true,
+  },
+  code: {
+    type: :string,
+    prompt: "Paste your code here:",
+    required: true,
+  },
+  tags: {
+    type: :array,
+    prompt: "Enter tags (comma separated):",
+    convert: ->(input) {
+      input.split(",").map(&:strip)
+    },
+  },
+  category: {
+    type: :select,
+    choices: %w[JavaScript Ruby Python C++ Other],
+    prompt: "Choose the category:",
+  },
+  description: {
+    type: :string,
+    prompt: "Enter a description (optional):",
+  },
+  language: {
+    type: :select,
+    choices: %w[Ruby Python JavaScript C++ Other],
+    prompt: "Programming language:",
+  },
+}
+
+options = {}
+OptionParser.new do |opts|
+  opts.banner = "Usage: snippet_manager [options]"
+
+  FIELDS.each do |key, config|
+    option_name = "--#{key}=#{key.to_s.upcase}"
+    opts.on(option_name, "Set the #{key} of the snippet") do |v|
+      options[key] = v
+    end
+  end
+end.parse!
+
+missing_fields = FIELDS.select { |k, v| v[:required] && options[k].nil? }.keys
+
+unless missing_fields.empty?
+  puts "\e[31mError:\e[0m Missing required options: #{missing_fields.join(", ")}"
+  exit(1)
+end
+
+puts "Snippet added successfully!"

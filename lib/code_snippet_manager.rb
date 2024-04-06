@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require_relative "code_snippet_manager/version"
-require "tty-prompt"
 
 # Main module for the lib
 module CodeSnippetManager

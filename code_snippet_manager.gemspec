@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.email = ["jovansr@protonmail.com"]
 
   spec.summary = %q{Efficient management and retrieval of code snippets.}
-  spec.description   = %q{A Ruby gem to help developers store, organize, categorize, and quickly retrieve code snippets, enhancing productivity and promoting code reuse.}
+  spec.description = %q{A Ruby gem to help developers store, organize, categorize, and quickly retrieve code snippets, enhancing productivity and promoting code reuse.}
   spec.homepage = "https://github.com/jovan-sremacki/code_snippet_manager"
   spec.license = "MIT"
   spec.required_ruby_version = ">= 3.0.0"
@@ -30,11 +30,12 @@ Gem::Specification.new do |spec|
   spec.executables = spec.files.grep(%r{\bin/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
-   # Runtime dependency
-   spec.add_runtime_dependency "tty-prompt", "~> 0.23.0"
+  # Runtime dependency
+  spec.add_runtime_dependency "tty-prompt", "~> 0.23.0"
+  spec.add_runtime_dependency ""
 
-   # Development dependencies
-   spec.add_development_dependency "rspec", "~> 3.10"
+  # Development dependencies
+  spec.add_development_dependency "rspec", "~> 3.10"
 
   # Uncomment to register a new dependency of your gem
   # spec.add_dependency "example-gem", "~> 1.0"
