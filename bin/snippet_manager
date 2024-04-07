@@ -1,0 +1,8 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require "code_snippet_manager"
+
+if ARGV.include?('init')
+  p "Do something here"
+end
